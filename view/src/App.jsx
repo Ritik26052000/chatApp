@@ -10,7 +10,7 @@ const App = () => {
 
   useEffect(() => {
     if (token) {
-      const socketConnection = io("http://localhost:8080", {
+      const socketConnection = io("https://chatappbackend-3r0d.onrender.com", {
         query: { token },
       });
       setSocket(socketConnection);
@@ -25,7 +25,7 @@ const App = () => {
   const handleLogin = async (loginData) => {
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/auth/login",
+        "https://chatappbackend-3r0d.onrender.com/api/auth/login",
         loginData
       );
       setToken(response.data.token);
